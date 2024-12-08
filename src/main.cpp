@@ -1,12 +1,12 @@
 #include "Config.hpp"
 #include "Services/Implementations/MultiAxisJoystickPeripheral.hpp"
-#include "Services/Implementations/HX711Peripheral.hpp"
+#include "Services/Implementations/HX711LoadCellInput.hpp"
 #include "Services/Implementations/PotentiometerPeripheral.hpp"
 
 // #define DEBUG
 
 MultiAxisJoystickPeripheral joystick;
-IInputPeripheral *inputs[DEVICE_CONFIG.NUM_AXES];
+IGenericAnalogInput *inputs[DEVICE_CONFIG.NUM_AXES];
 
 void setupInputs()
 {
@@ -21,7 +21,7 @@ void setupInputs()
     case InputType::LOAD_CELL:
     {
       const auto &lc = config.config.loadCell;
-      inputs[i] = new HX711Peripheral(
+      inputs[i] = new HX711LoadCellInput(
           lc.dataPin,
           lc.clockPin,
           lc.tareReps,

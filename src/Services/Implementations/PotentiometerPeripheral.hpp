@@ -2,9 +2,9 @@
 #define POTENTIOMETER_PERIPHERAL_H
 
 #include "Libs/Core.hpp"
-#include "Services/Interfaces/IInputPeripheral.hpp"
+#include "Services/Interfaces/IGenericAnalogInput.hpp"
 
-class PotentiometerPeripheral : public IInputPeripheral
+class PotentiometerPeripheral : public IGenericAnalogInput
 {
 public:
 	PotentiometerPeripheral(uint8_t pin, bool invertReading = false)

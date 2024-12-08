@@ -1,11 +1,11 @@
-#include "HX711Peripheral.hpp"
+#include "HX711LoadCellInput.hpp"
 
-HX711Peripheral::HX711Peripheral(uint8_t dataPin, uint8_t clockPin)
+HX711LoadCellInput::HX711LoadCellInput(uint8_t dataPin, uint8_t clockPin)
 		: _dataPin(dataPin), _clockPin(clockPin)
 {
 }
 
-HX711Peripheral::HX711Peripheral(
+HX711LoadCellInput::HX711LoadCellInput(
 		uint8_t dataPin,
 		uint8_t clockPin,
 		uint8_t tareReps,
@@ -20,13 +20,13 @@ HX711Peripheral::HX711Peripheral(
 	this->cellMax = cellMax;
 	this->cellPolarity = cellPolarity;
 }
-void HX711Peripheral::setup()
+void HX711LoadCellInput::setup()
 {
 	this->HX711Instance.begin(this->_dataPin, this->_clockPin);
 	this->HX711Instance.tare(this->tareReps);
 }
 
-float HX711Peripheral::getMeasurement()
+float HX711LoadCellInput::getMeasurement()
 {
 	int32_t readingScaled = this->HX711Instance.get_value() / this->cellScaling;
 

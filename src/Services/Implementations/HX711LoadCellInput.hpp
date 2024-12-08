@@ -2,14 +2,14 @@
 #define HX711_LoadCell_H
 
 #include "Libs/Core.hpp"
-#include "Services/Interfaces/ILoadCellPeripheral.hpp"
+#include "Services/Interfaces/ILoadCellInput.hpp"
 #include <HX711.h>
 
-class HX711Peripheral : public ILoadCellPeripheral
+class HX711LoadCellInput : public ILoadCellInput
 {
 public:
-	HX711Peripheral(uint8_t dataPin, uint8_t clockPin);
-	HX711Peripheral(
+	HX711LoadCellInput(uint8_t dataPin, uint8_t clockPin);
+	HX711LoadCellInput(
 			uint8_t dataPin,
 			uint8_t clockPin,
 			uint8_t tareReps,
