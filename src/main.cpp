@@ -1,7 +1,7 @@
 #include "Config.hpp"
 #include "Services/Implementations/MultiAxisJoystickPeripheral.hpp"
 #include "Services/Implementations/HX711LoadCellInput.hpp"
-#include "Services/Implementations/PotentiometerPeripheral.hpp"
+#include "Services/Implementations/PotentiometerInput.hpp"
 
 // #define DEBUG
 
@@ -33,7 +33,7 @@ void setupInputs()
     case InputType::POTENTIOMETER:
     {
       const auto &pot = config.config.potentiometer;
-      inputs[i] = new PotentiometerPeripheral(
+      inputs[i] = new PotentiometerInput(
           pot.pin,
           pot.invertReading);
       break;
